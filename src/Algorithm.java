@@ -27,7 +27,7 @@ public static BigInteger sqrt(BigInteger x) {
             a = a.add(ONE);
 	    b2 = a.multiply(a).subtract(N);
         }
-        res1 = a.subtract(sqrt(b2));
+        BigInteger res1 = a.subtract(sqrt(b2));
         return res1;
         //display(r1, r2);
     }
