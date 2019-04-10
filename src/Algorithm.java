@@ -4,19 +4,29 @@ import java.math.BigInteger;
 public class Algorithm implements AM {
 	private final static BigInteger ONE  = new BigInteger("1");
 
-public static BigInteger sqrt(BigInteger x) {
-    BigInteger div = BigInteger.ZERO.setBit(x.bitLength()/2);
-    BigInteger div2 = div;
-    // Loop until we hit the same value twice in a row, or wind
-    // up alternating.
-    for(;;) {
-        BigInteger y = div.add(x.divide(div)).shiftRight(1);
-        if (y.equals(div) || y.equals(div2))
+    public static BigInteger sqrt(BigInteger x)
+            throws IllegalArgumentException {
+        if (x.compareTo(BigInteger.ZERO) < 0) {
+            throw new IllegalArgumentException("Negative argument.");
+        }
+        // square roots of 0 and 1 are trivial and
+        // y == 0 will cause a divide-by-zero exception
+        if (x == BigInteger.ZERO || x == BigInteger.ONE) {
+            return x;
+        } // end if
+        BigInteger two = BigInteger.valueOf(2L);
+        BigInteger y;
+        // starting with y = x / 2 avoids magnitude issues with x squared
+        for (y = x.divide(two);
+             y.compareTo(x.divide(y)) > 0;
+             y = ((x.divide(y)).add(y)).divide(two));
+        if (x.compareTo(y.multiply(y)) == 0) {
             return y;
-        div2 = div;
-        div = y;
-    }
-} 
+        } else {
+            return y.add(BigInteger.ONE);
+        }
+    } // end bigIntSqRootCeil
+
 	
 	
 	public BigInteger FermatFactor(BigInteger N)
