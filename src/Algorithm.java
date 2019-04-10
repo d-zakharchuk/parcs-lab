@@ -24,8 +24,8 @@ public class Algorithm implements AM {
 	
     public void run(AMInfo info) {
     String result;
-	String N = (String) info.parent.readObject();
-	permute(str,0,str.length()-1, result);
+    String N = (String) info.parent.readObject();
+    permute(N, 0, N.length()-1, result);
     point p = info.createPoint();
     channel c = p.createChannel();
     p.execute("Algorithm");
