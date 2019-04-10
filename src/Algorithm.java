@@ -23,7 +23,7 @@ public class Algorithm implements AM {
     }
 	
     public void run(AMInfo info) {
-    String result;
+    String result = new String("");
     String N = (String) info.parent.readObject();
     permute(N, 0, N.length()-1, result);
     point p = info.createPoint();
