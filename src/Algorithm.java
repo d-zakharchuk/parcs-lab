@@ -28,8 +28,8 @@ public static BigInteger sqrt(BigInteger x) {
             a = a.add(ONE);
 	    b2 = a.multiply(a).subtract(N);
         }
-        BigInteger res1 = a.subtract(sqrt(b2));
-        return res1;
+        BigInteger r1 = a.subtract(sqrt(b2));
+        return r1;
         //display(r1, r2);
     }
     public boolean isSquare(BigInteger N)
@@ -42,10 +42,8 @@ public static BigInteger sqrt(BigInteger x) {
 	
     public void run(AMInfo info) {
     BigInteger N = (BigInteger) info.parent.readObject();
-    BigInteger res1 = new BigInteger("0");
-    BigInteger res2 = new BigInteger("0");
-    res1 = FermatFactor(N);
-    res2 = N.divide(res1);
+    BigInteger res1 = FermatFactor(N);
+    BigInteger res2 = N.divide(res1);
     point p = info.createPoint();
     channel c = p.createChannel();
     p.execute("Algorithm");
