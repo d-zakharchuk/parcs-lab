@@ -12,7 +12,7 @@ public class Algorithm implements AM {
     static void permute(String str,int low,int high, String result){
         if(low == high)
 			result += str + "\n";
-            //System.out.println(str);
+            System.out.println(str);
  
         int i;
         for(i = low; i<=high; i++){
