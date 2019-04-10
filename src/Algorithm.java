@@ -2,6 +2,7 @@ import parcs.*;
 import java.math.BigInteger;
 
 public class Algorithm implements AM {
+	private final static BigInteger ONE  = new BigInteger("1");
 
 public static BigInteger sqrt(BigInteger x) {
     BigInteger div = BigInteger.ZERO.setBit(x.bitLength()/2);
