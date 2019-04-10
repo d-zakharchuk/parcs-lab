@@ -30,7 +30,9 @@ public static void main(String[] args) {
 	System.out.println("Waiting for result...");
 	num1 = (BigInteger) c.readObject();
 	num2 = (BigInteger) c.readObject();
-	System.out.println("Result found.");		
+	System.out.println("Result found.");
+	    System.out.println(num1);
+	    System.out.println(num2);
 	try {
           PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Permute.res")));
           out.println(num1);
