@@ -12,7 +12,7 @@ public static void main(String[] args) {
     }
 
     public void run(AMInfo info) {
-    String my_result;
+    String my_result = new String("");
 	String n;
 	try{
 			Scanner sc = new Scanner(new File(info.curtask.findFile("Permute.data")));
