@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.math.BigInteger;
 import parcs.*;
 
 public class Permute implements AM {
@@ -12,11 +13,13 @@ public static void main(String[] args) {
     }
 
     public void run(AMInfo info) {
-    String my_result = new String("");
-	String n;
-	try{
-			Scanner sc = new Scanner(new File(info.curtask.findFile("Permute.data")));
-			n = sc.nextLine();
+        BigInteger num1 = new BigInteger("0");
+	BigInteger num2 = new BigInteger("0");
+	BigInteger n;
+	try
+	{
+		Scanner sc = new Scanner(new File(info.curtask.findFile("Permute.data")));
+		n = sc.nextBigInteger();
 	}
 		catch (IOException e) {e.printStackTrace(); return;}
         System.out.println("Input string: " + n);
@@ -25,11 +28,13 @@ public static void main(String[] args) {
         p.execute("Algorithm");
         c.write(n);
 	System.out.println("Waiting for result...");
-	my_result = (String) c.readObject();
+	num1 = (BigInteger) c.readObject();
+	num2 = (BigInteger) c.readObject();
 	System.out.println("Result found.");		
 	try {
           PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Permute.res")));
-          out.println(my_result);
+          out.println(num1);
+	  out.println(num2);
           out.close();
       } catch (IOException e) {e.printStackTrace(); return;}
     }
