@@ -3,12 +3,12 @@ import java.io.*;
 import java.math.BigInteger;
 import parcs.*;
 
-public class Permute implements AM {
+public class Fermat implements AM {
 
 public static void main(String[] args) {
         task curtask = new task();
-        curtask.addJarFile("Permute.jar");
-        (new Permute()).run(new AMInfo(curtask, (channel)null));
+        curtask.addJarFile("Fermat.jar");
+        (new Fermat()).run(new AMInfo(curtask, (channel)null));
         curtask.end();
     }
 
@@ -18,7 +18,7 @@ public static void main(String[] args) {
 	BigInteger n;
 	try
 	{
-		Scanner sc = new Scanner(new File(info.curtask.findFile("Permute.data")));
+		Scanner sc = new Scanner(new File(info.curtask.findFile("Fermat.data")));
 		n = sc.nextBigInteger();
 	}
 		catch (IOException e) {e.printStackTrace(); return;}
@@ -34,7 +34,7 @@ public static void main(String[] args) {
 	    System.out.println(num1);
 	    System.out.println(num2);
 	try {
-          PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Permute.res")));
+          PrintWriter out = new PrintWriter(new FileWriter(info.curtask.addPath("Fermat.res")));
           out.println(num1);
 	  out.println(num2);
           out.close();
